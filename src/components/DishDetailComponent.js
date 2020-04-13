@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Moment from 'react-moment';
 
 import { Card, CardImg, CardText, CardBody,CardTitle } from 'reactstrap';
 class DishDetail extends Component{
@@ -15,16 +14,13 @@ class DishDetail extends Component{
                   renderComments(comments){
                     return(
                       <div className="ist-unstyled ">
-                        
-                        <Card>
                         <h4>Comments</h4>
+                        <Card>
                       <CardText>{comments.map((comment)=>{return(
                         <div>
                           {comment.comment}  
                           <br></br>
-                     <b>{comment.author}</b>     <Moment format="YYYY/MM/DD">
-                {comment.date}
-            </Moment>
+                     <b>{comment.author}</b>    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
 
                         </div>
                       
@@ -95,7 +91,7 @@ class DishDetail extends Component{
 
           render(){
 
-                 return( <div >{this.renderDish(this.props.passdata)}</div>  );
+                 return( <div className="container" >{this.renderDish(this.props.dish)}</div>  );
            
               
           }

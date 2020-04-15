@@ -11,6 +11,7 @@ import { LEADERS } from '../shared/leaders';
 import DishDetail from './DishDetailComponent';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import About from './AboutComponent';
 class Main extends Component {
 
   constructor(props) {
@@ -47,7 +48,11 @@ class Main extends Component {
             comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} />
       );
     };
-    
+    const AboutPage=({match})=>{
+      return(
+        <About leaders={this.state.leaders.filter((leader)=> leader.id === parseInt(match.params.id,10))}></About>
+      );
+    }
 
 
     return (
@@ -57,6 +62,7 @@ class Main extends Component {
       
     <Switch>
     <Route path='/home' component={HomePage} />
+    <Route path='/aboutus' component={AboutPage} />
     <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
     <Route path='/menu/:dishId' component={DishWithId} />
     <Route exact path='/contactus' component={Contact} />} />

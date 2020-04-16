@@ -50,7 +50,7 @@ class Main extends Component {
     };
     const AboutPage=({match})=>{
       return(
-        <About leaders={this.state.leaders.filter((leader)=> leader.id === parseInt(match.params.id,10))}></About>
+        <About leaders={this.state.leaders}></About>
       );
     }
 

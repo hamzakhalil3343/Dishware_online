@@ -1,17 +1,38 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import RenderLeader from './RenderLeaderComponent';
 
 function About(props) {
-
+       console.log("about func "+props.leaders);
     const leaders = props.leaders.map((leader) => {
+      
         return (
-            <p>Leader {leader.name}</p>
+            <div>
+                
+                
+                <Media>
+      <Media left href="#">
+      <RenderLeader leaders={<img src={leader.image} alt="un occur"></img>} ></RenderLeader>    
+      </Media>
+      <Media body>
+        <Media heading left>
+        <RenderLeader leaders={leader.name} ></RenderLeader>
+        </Media>
+        <RenderLeader leaders={leader.designation} ></RenderLeader>
+        <RenderLeader leaders={leader.description} ></RenderLeader>
+      </Media>
+    </Media>
+                             
+                             
+            </div>
+            
         );
     });
 
     return(
         <div className="container">
+         
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>

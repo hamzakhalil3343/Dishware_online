@@ -9,4 +9,4 @@ Menu Details component
  UnControlled Login Form
 ![](images/Uncontrolledfrom.png)
 Submit Comment Component 
-![](images/SubmitCommentComponent.png)
+![](images/submitCommentComponent.png)
